@@ -52,7 +52,7 @@ plt.rcParams.update({
 })
 
 # ── Header ─────────────────────────────────────────────────────────────────────
-st.title("🛡️  UPI Payment Fraud Detection")
+st.title(" UPI Payment Fraud Detection")
 st.caption("Machine Learning powered fraud intelligence dashboard")
 st.divider()
 
@@ -65,17 +65,17 @@ df = load_data()
 
 # ── KPI row ────────────────────────────────────────────────────────────────────
 k1, k2, k3, k4 = st.columns(4)
-k1.metric("📊 Total Transactions", f"{len(df):,}")
-k2.metric("🚨 Fraud Cases",        f"{df['IS_FRAUD'].sum():,}",
+k1.metric("Total Transactions", f"{len(df):,}")
+k2.metric("Fraud Cases",        f"{df['IS_FRAUD'].sum():,}",
           delta=f"{round(df['IS_FRAUD'].mean()*100,2)}% of total",
           delta_color="inverse")
-k3.metric("⚠️ Fraud Rate",         f"{round(df['IS_FRAUD'].mean()*100,2)}%")
-k4.metric("💰 Total Volume",       f"₹{round(df['AMOUNT'].sum()/1e7,1)} Cr")
+k3.metric("Fraud Rate",         f"{round(df['IS_FRAUD'].mean()*100,2)}%")
+k4.metric("Total Volume",       f"₹{round(df['AMOUNT'].sum()/1e7,1)} Cr")
 
 st.divider()
 
 # ── Amount distribution ────────────────────────────────────────────────────────
-st.subheader("📈  Transaction Amount Distribution")
+st.subheader("Transaction Amount Distribution")
 
 fig, axes = plt.subplots(1, 2, figsize=(13, 4.5))
 fig.patch.set_facecolor(BG)
@@ -116,7 +116,7 @@ plt.close(fig)
 st.divider()
 
 # ── Hourly pattern ─────────────────────────────────────────────────────────────
-st.subheader("🕐  Fraud Activity by Hour of Day")
+st.subheader("Fraud Activity by Hour of Day")
 
 hourly = df.groupby(['HOUR_OF_DAY', 'IS_FRAUD']).size().unstack(fill_value=0)
 hours  = np.arange(len(hourly))
@@ -161,11 +161,11 @@ plt.close(fig2)
 st.divider()
 
 # ── Model training ─────────────────────────────────────────────────────────────
-st.subheader("🤖  Model Training & Evaluation")
+st.subheader("Model Training & Evaluation")
 
 c_btn, c_info = st.columns([1, 2])
 with c_btn:
-    train_clicked = st.button("⚡  Train Random Forest", use_container_width=True)
+    train_clicked = st.button("Train Random Forest", use_container_width=True)
 with c_info:
     st.info("**Config:** 100 estimators · SMOTE oversampling · 80/20 train-test split · 5 features")
 
@@ -181,15 +181,15 @@ if train_clicked:
         clf.fit(Xr, yr)
         yp  = clf.predict(Xte)
 
-    st.success("✅  Model trained successfully!")
+    st.success("Model trained successfully!")
     st.divider()
 
     # metrics
     r = classification_report(yte, yp, output_dict=True)
     m1, m2, m3 = st.columns(3)
-    m1.metric("🎯 Precision", f"{round(r['1']['precision']*100, 1)}%")
-    m2.metric("🔍 Recall",    f"{round(r['1']['recall']*100, 1)}%")
-    m3.metric("⚖️ F1 Score",  f"{round(r['1']['f1-score']*100, 1)}%")
+    m1.metric("Precision", f"{round(r['1']['precision']*100, 1)}%")
+    m2.metric("Recall",    f"{round(r['1']['recall']*100, 1)}%")
+    m3.metric("F1 Score",  f"{round(r['1']['f1-score']*100, 1)}%")
 
     st.divider()
 
