@@ -6,3 +6,4 @@ seaborn
 openpyxl
 plotly
 scikit-learn
+imbalanced-learn
