@@ -174,7 +174,7 @@ if train_clicked:
         features = ['AMOUNT', 'HOUR_OF_DAY', 'NEW_DEVICE',
                     'FAILED_ATTEMPTS_BEFORE', 'DIFFERENT_STATE']
         X   = StandardScaler().fit_transform(df[features])
-        y   = df['is_fraud']
+        y   = df['IS_FRAUD']
         Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.2, random_state=42)
         Xr, yr = SMOTE(random_state=42).fit_resample(Xtr, ytr)
         clf = RandomForestClassifier(n_estimators=100, random_state=42)
