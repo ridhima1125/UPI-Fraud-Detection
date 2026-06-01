@@ -67,9 +67,9 @@ df = load_data()
 k1, k2, k3, k4 = st.columns(4)
 k1.metric("📊 Total Transactions", f"{len(df):,}")
 k2.metric("🚨 Fraud Cases",        f"{df['is_fraud'].sum():,}",
-          delta=f"{round(df['is_fraud'].mean()*100,2)}% of total",
+          delta=f"{round(df['IS_FRAUD'].mean()*100,2)}% of total",
           delta_color="inverse")
-k3.metric("⚠️ Fraud Rate",         f"{round(df['is_fraud'].mean()*100,2)}%")
+k3.metric("⚠️ Fraud Rate",         f"{round(df['IS_FRAUD'].mean()*100,2)}%")
 k4.metric("💰 Total Volume",       f"₹{round(df['amount'].sum()/1e7,1)} Cr")
 
 st.divider()
@@ -85,7 +85,7 @@ for ax, fraud_flag, color, title in [
     (axes[0], 0, GREEN, "Normal Transactions"),
     (axes[1], 1, RED,   "Fraudulent Transactions"),
 ]:
-    data = df[df['is_fraud'] == fraud_flag]['amount']
+    data = df[df['IS_FRAUD'] == fraud_flag]['amount']
     if fraud_flag == 0:
         data = data.clip(upper=10000)
 
@@ -118,7 +118,7 @@ st.divider()
 # ── Hourly pattern ─────────────────────────────────────────────────────────────
 st.subheader("🕐  Fraud Activity by Hour of Day")
 
-hourly = df.groupby(['hour_of_day', 'is_fraud']).size().unstack(fill_value=0)
+hourly = df.groupby(['hour_of_day', 'IS_FRAUD']).size().unstack(fill_value=0)
 hours  = np.arange(len(hourly))
 w      = 0.38
 
