@@ -20,7 +20,7 @@ Synthetic data was generated using Python and analyzed using Jupyter Notebook.
 - Jupyter Notebook
 
 ## 🚀 Live App
-[Click here to open the app](STREAMLIT_LINK_YAHAN_DAALNA)
+[Click here to open the app](https://upi-fraud-detection-sxvehwzvr48sqvxe29aups.streamlit.app/)
 
 ## 📊 Features
 - Synthetic UPI transaction data generation
