@@ -59,7 +59,7 @@ st.divider()
 # ── Data ───────────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    return pd.read_csv('upi_transactions.csv')
+    return pd.read_excel('upi_transactions.xlsx')
 
 df = load_data()
 
