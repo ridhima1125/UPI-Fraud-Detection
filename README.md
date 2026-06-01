@@ -1,10 +1,10 @@
-# 🔍 UPI Fraud Detection System
+#  UPI Fraud Detection System
 
-## 📌 Project Overview
+##  Project Overview
 A machine learning based system to detect fraudulent UPI transactions.
 Synthetic data was generated using Python and analyzed using Jupyter Notebook.
 
-## 📁 Files
+##  Files
 | File | Description |
 |------|-------------|
 | `app.py` | Streamlit web application |
@@ -12,17 +12,17 @@ Synthetic data was generated using Python and analyzed using Jupyter Notebook.
 | `data.xlsx` | Generated transaction dataset |
 | `requirements.txt` | Python dependencies |
 
-## 🛠️ Tools Used
+##  Tools Used
 - Python, Pandas, NumPy
 - Matplotlib, Seaborn
 - Streamlit
 - Scikit-learn
 - Jupyter Notebook
 
-## 🚀 Live App
+##  Live App
 [Click here to open the app](https://upi-fraud-detection-sxvehwzvr48sqvxe29aups.streamlit.app/)
 
-## 📊 Features
+##  Features
 - Synthetic UPI transaction data generation
 - Exploratory Data Analysis (EDA)
 - Fraud vs legitimate transaction visualization
